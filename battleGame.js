@@ -1,11 +1,37 @@
 // 1. Create attack function below.  This will take the following parameters:
 // attackingPlayer, defendingPlayer, baseDamage, variableDamage
 
+const attack = function (attackingPlayer, defendingPlayer, baseDamage, variableDamage){
+
+  let damage = baseDamage + getRandomIntInclusive(0,variableDamage)
+  defendingPlayer.health-=damage
+
+  return `${attackingPlayer.name}+"hits"+${defendingPlayer.name} +"for "+${damage}`
+
+}
+
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+}
 
 
 // 2. Create player1 and player2 objects below
 // Each should have a name property of your choosing, and health property equal to 10
 
+const player1 ={
+  name: 'Merlin',
+  health: 10,
+
+}
+
+const player2 ={
+  name: 'James Bond',
+  health: 10,
+
+}
 
 
 // 3. Refactor attack function to an arrow function.  Comment out function above.
