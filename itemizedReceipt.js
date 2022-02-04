@@ -10,9 +10,10 @@ const logReceipt = function (){
         console.log(thing.descr+" - "+ "$"+thing.price)
         total+=thing.price
 
+
     })
     console.log(`Total - $${total}`)
-    // console.log(`total - ${total}`)
+
 }
 
 // console.log(logReceipt(10,6,99))
