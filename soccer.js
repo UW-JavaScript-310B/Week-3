@@ -20,7 +20,19 @@ const getPointsFromResult = function getPointsFromResult(result) {
 // including wins, draws, and losses i.e. 'wwdlw'
 // Returns total number of points won
 
+const getTotalPoints = function(results){
 
+  let points = 0
+
+  for (let char of results){
+
+    points +=getPointsFromResult(char)
+
+  }
+
+  return points
+
+}
 
 // Check getTotalPoints
 console.log(getTotalPoints('wwdl')); // should equal 7
@@ -30,13 +42,22 @@ console.log(getTotalPoints('wwdl')); // should equal 7
 // i.e. {name: 'Sounders', results: 'wwlwdd'}
 // Logs each entry to the console as "Team name: points"
 
-
-
 // Check orderTeams
+
+const orderTeams = function (){
+
+  const args = Array.from(arguments)
+  args.forEach(function (thing){
+    console.log(`${thing.name}: ${getTotalPoints(thing.results)}`)
+  })
+
+}
+
 orderTeams(
-  { name: 'Sounders', results: 'wwdl' },
-  { name: 'Galaxy', results: 'wlld' }
+    { name: 'Sounders', results: 'wwdl' },
+    { name: 'Galaxy', results: 'wlld' }
 );
+
 // should log the following to the console:
 // Sounders: 7
 // Galaxy: 4
