@@ -3,7 +3,15 @@
 // i.e. {descr: 'Coke', price: 1.99}
 // function should log each item to the console and log a total price
 
+function logReceipt ( descr, price = 0 ) {
 
+  forEach method
+
+  console.log(`${descr}: ${price}`)
+  let runningTotal = 0;
+  runningTotal += price;
+
+}
 
 // Check
 logReceipt(
