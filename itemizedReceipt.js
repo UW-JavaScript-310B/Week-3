@@ -3,17 +3,16 @@
 // i.e. {descr: 'Coke', price: 1.99}
 // function should log each item to the console and log a total price
 // descr, price = 0
-function logReceipt ( ...params ) {
+function logReceipt ( ...items ) {
   let runningTotal = 0;
-  const args = Array.from(arguments);
-
-  args.forEach(function(price) {
-    console.log(`${arguments[0]}: ${arguments[1]}`)
-
-    runningTotal += price;
+  
+  items.forEach(function(item) {
+    console.log(`${item.descr}: ${item.price}`)
+    runningTotal += item.price;
+    console.log(`Subtotal: ${runningTotal}`)
   });
   
-  console.log(`${runningTotal}`);
+  console.log(`Purchase total: $${runningTotal}`);
 
 }
 
