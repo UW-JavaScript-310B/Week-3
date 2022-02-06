@@ -2,14 +2,18 @@
 // with these properties: {descr, price}
 // i.e. {descr: 'Coke', price: 1.99}
 // function should log each item to the console and log a total price
-
-function logReceipt ( descr, price = 0 ) {
-
-  forEach method
-
-  console.log(`${descr}: ${price}`)
+// descr, price = 0
+function logReceipt ( ...params ) {
   let runningTotal = 0;
-  runningTotal += price;
+  const args = Array.from(arguments);
+
+  args.forEach(function(price) {
+    console.log(`${arguments[0]}: ${arguments[1]}`)
+
+    runningTotal += price;
+  });
+  
+  console.log(`${runningTotal}`);
 
 }
 
