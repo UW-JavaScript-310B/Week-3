@@ -4,7 +4,13 @@
 // '206-333-4444'
 // '206 333 4444'
 // Returns true if valid, false if not valid
-
+const testPhoneNumber = (phoneNumber) => {
+  // Define new phone number RegExp
+  const phoneNoRegExp = new RegExp(/^(\d{3}|\(\d{3}\))([-\s])\d{3}([-\s])\d{4}$/);
+  // Check if the "phoneNumber" is a phone number or not. 
+  const isPhoneNo = phoneNoRegExp.test(phoneNumber);
+  return isPhoneNo;
+}; 
 
 
 // Explanation of RegExp
@@ -29,7 +35,34 @@ console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a
 // and run the exec method to capture the area code and remaining part of
 // the phone number.
 // Returns an object in the format {areaCode, phoneNumber}
-
+const parsePhoneNumber = (phoneNumber) => {
+  // Check if the "phoneNumber" is a phone number
+  if (testPhoneNumber(phoneNumber)) {
+    // Strip all parentheses, hyphens and white space from phone no.
+    const strippedPhoneNo = phoneNumber.replace(/[()\ \s-]+/g, '');
+    // Get areaCode from the stripped phone no.
+    const areaCode = strippedPhoneNo.slice(0, 3);
+    // console.log(areaCode);
+    // Get the phone number part from stripped phone no.
+    const phoneNoPart = strippedPhoneNo.replace(areaCode,'');
+    // console.log(phoneNoPart);
+    // Define new regexp phone number
+    const phonePartRegExp = new RegExp(`(${areaCode})(${phoneNoPart})`,'g');
+    // Define an array to store all parts of the phone number
+    let arrayPhoneNo = phonePartRegExp.exec(strippedPhoneNo);
+    // console.log(arrayPhoneNo[0]);
+    // console.log(arrayPhoneNo[1]);
+    // console.log(arrayPhoneNo[2]);
+    // Define an object called objPhoneNo
+    const objPhoneNo = {
+      areaCode: arrayPhoneNo[1],
+      phoneNumber: arrayPhoneNo[2],
+    };
+    return objPhoneNo;
+  } else {
+    console.log(`The string "${phoneNumber}" is not a phone no.`)
+  }
+};
 
 
 // Check parsePhoneNumber
@@ -38,3 +71,6 @@ console.log(parsePhoneNumber('206-333-4444'));
 
 console.log(parsePhoneNumber('(222) 422-5353'));
 // returns {areaCode: '222', phoneNumber: '4225353'}
+
+console.log(parsePhoneNumber('345 udjkc ijije'));
+// returns 'The number 345 udjkc ijije is not a phone no.'
