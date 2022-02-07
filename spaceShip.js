@@ -20,5 +20,8 @@ usetopSpeed(){
 // 2. Call the constructor with a couple ships, 
 // and call accelerate on both of them.
 
-const spaceX = new SpaceShip('SpaceXShip', '500 mph');
-spaceX.usetopSpeed()+;
+const spaceX = new SpaceShip('Dragon', '5,770 mph');
+spaceX.usetopSpeed();
+
+const blueOrigin = new SpaceShip('New Shepard', '2,217 mph');
+blueOrigin.usetopSpeed();

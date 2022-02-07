@@ -52,7 +52,6 @@ while (player1.health >= 1 && player2.health >= 1 && preventInfiniteLoop > 0) {
   const [attackingPlayer, defendingPlayer] = attackOrder;
   console.log(attack(attackingPlayer, defendingPlayer, 1, 2));
   attackOrder = attackOrder.reverse();
-
   preventInfiniteLoop--;
 }
 const eliminatedPlayer = player1.health <= 0 ? player1 : player2;
