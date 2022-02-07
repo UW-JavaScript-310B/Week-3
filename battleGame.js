@@ -23,9 +23,7 @@ const player2 = {
 let attack = ((attackingPlayer, defendingPlayer, baseDamage, variableDamage) => {
   const totalDamage = baseDamage + Math.floor(Math.random() * variableDamage);
   defendingPlayer.health -= totalDamage;
-  //return `${attackingPlayer.name} ${attackAdjective[Math.round(Math.random() * 4)]} ${defendingPlayer.name} for ${totalDamage} damage!`
-  return(attackingPlayer.name + ' ' + attackAdjective[Math.round(Math.random() * 4)] + ' for ' + totalDamage + ' damage!');
-})
+  console.log(`${attackingPlayer.name} ${attackAdjective[Math.round(Math.random() * 4)]} ${defendingPlayer.name} for ${totalDamage} damage!`);})
 
 let attackAdjective = ['smites', 'hits', 'bashes', 'bludgeons', 'crushes'];
 
