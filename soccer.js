@@ -28,6 +28,7 @@
 
     // Scan through arrayResult
     arrayResult.forEach(result => {
+      // Calculate total points
       totalPoint += getPointsFromResult(result);
     });
     // Return the total number of points won
