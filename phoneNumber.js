@@ -42,17 +42,12 @@ const parsePhoneNumber = (phoneNumber) => {
     const strippedPhoneNo = phoneNumber.replace(/[()\ \s-]+/g, '');
     // Get areaCode from the stripped phone no.
     const areaCode = strippedPhoneNo.slice(0, 3);
-    // console.log(areaCode);
     // Get the phone number part from stripped phone no.
     const phoneNoPart = strippedPhoneNo.replace(areaCode,'');
-    // console.log(phoneNoPart);
     // Define new regexp phone number
     const phonePartRegExp = new RegExp(`(${areaCode})(${phoneNoPart})`,'g');
     // Define an array to store all parts of the phone number
     let arrayPhoneNo = phonePartRegExp.exec(strippedPhoneNo);
-    // console.log(arrayPhoneNo[0]);
-    // console.log(arrayPhoneNo[1]);
-    // console.log(arrayPhoneNo[2]);
     // Define an object called objPhoneNo
     const objPhoneNo = {
       areaCode: arrayPhoneNo[1],
@@ -60,7 +55,8 @@ const parsePhoneNumber = (phoneNumber) => {
     };
     return objPhoneNo;
   } else {
-    console.log(`The string "${phoneNumber}" is not a phone no.`)
+    // console.log(`The string "${phoneNumber}" is not a phone no.`);
+    return `The string "${phoneNumber}" is not a phone no.`;
   }
 };
 
@@ -72,5 +68,5 @@ console.log(parsePhoneNumber('206-333-4444'));
 console.log(parsePhoneNumber('(222) 422-5353'));
 // returns {areaCode: '222', phoneNumber: '4225353'}
 
-console.log(parsePhoneNumber('345 udjkc ijije'));
-// returns 'The number 345 udjkc ijije is not a phone no.'
+console.log(parsePhoneNumber('345 33 2345'));
+// returns 'The number "345 33 2345" is not a phone no.'
