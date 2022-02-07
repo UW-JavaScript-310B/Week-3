@@ -18,7 +18,6 @@ class SpaceShip {
 // and call accelerate on both of them.
 
 const mFalcon = new SpaceShip('Millenium Falcon', 'point-five past lightspeed');
-
 const enterpriseD = new SpaceShip('USS Enterprise', 'Warp 9.5')
 
 mFalcon.accelerate();
