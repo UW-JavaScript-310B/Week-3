@@ -7,13 +7,26 @@ const logReceipt = (...menuItems) => {
   let totalPrice = 0;
   // scan through menuItems
   menuItems.forEach(menuItem => {
-    // Display each item properties
-    console.log(`${menuItem.descr} - $${menuItem.price}`);
+    // Get item info
+    const itemInfo = `${menuItem.descr} - $${menuItem.price}`;
+    // Output to console log
+    console.log(itemInfo);
     // Calculate the total
     totalPrice += menuItem.price;
+
+    // Display the output in HTML page
+    // Create a <p> element and a text node
+    const itemElement = document.createElement('p');
+    const itemText = document.createTextNode(itemInfo);
+    itemElement.appendChild(itemText);
+    // Get the element with id is "itemList" and append the new item above to it
+    const itemTotalPrice = document.getElementById("itemList");
+    itemTotalPrice.appendChild(itemElement);
   });
-  // Display total price
+  // Display total price in console log
   console.log(`Total - $${totalPrice}`);
+  // Display total price in HTML page
+  document.getElementById("totalPrice").textContent = `Total - $${totalPrice}`;
 };
 
 

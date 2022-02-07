@@ -35,7 +35,12 @@
   };
 
   // Check getTotalPoints
-  console.log(getTotalPoints('wwdl')); // should equal 7
+  const totalPoints = getTotalPoints('wwdl');
+  // Output to console log
+  console.log(totalPoints); // should equal 7
+  // Display the total point number in HTML page
+  document.getElementById("totalPoint").textContent = `The total points of "wwdl" is: ${totalPoints}.`
+
 
   // create orderTeams function that accepts as many team objects as desired, 
   // each argument is a team object in the format { name, results }
@@ -46,8 +51,15 @@
     const teamArray = Array.from(teams);
     // Scan through team array
     teamArray.forEach(team => {
-      // Logs each team to the console
-      console.log(`${team.name}: ${getTotalPoints(team.results)}`);
+      // Get team info
+      const teamInfo = `${team.name}: ${getTotalPoints(team.results)}`;
+      // Logs team info to the console
+      console.log(teamInfo);
+      // Display the info in HTML page
+      const teamElement = document.createElement('p');
+      const teamInfoText = document.createTextNode(teamInfo);
+      teamElement.appendChild(teamInfoText);
+      document.getElementById("totalPoint").appendChild(teamElement);
     });
   };
 

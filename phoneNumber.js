@@ -24,9 +24,19 @@ const testPhoneNumber = (phoneNumber) => {
 // \d{4}  exactly 4 digit characters
 // $      end of line
 
+// Define some phone number vars to check
+const phone1 = '(206) 333-4444';
+const phone2 = '(206) 33-4444';
 // check testPhoneNumber
-console.log(testPhoneNumber('(206) 333-4444')); // should return true
-console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a digit
+const testPhone1 = testPhoneNumber(phone1);
+const testPhone2 = testPhoneNumber(phone2);
+
+// check testPhoneNumber
+console.log(testPhone1); // should return true
+console.log(testPhone2); // should return false, missing a digit
+// Display the results in HTML page
+document.getElementById("phoneChk1").textContent = `Is this number "${phone1}" a phone number? ${testPhone1}`;
+document.getElementById("phoneChk2").textContent = `Is this number "${phone2}" a phone number? ${testPhone2}`;
 
 
 // 1. Create a function parsePhoneNumber that takes in a phoneNumber string 
@@ -56,17 +66,29 @@ const parsePhoneNumber = (phoneNumber) => {
     return objPhoneNo;
   } else {
     // console.log(`The string "${phoneNumber}" is not a phone no.`);
-    return `The string "${phoneNumber}" is not a phone no.`;
+    return `The string "${phoneNumber}" is not a phone number.`;
   }
 };
-
+// Define some phone-number vars to check
+const phone3 = '206-333-4444';
+const phone4 = '(222) 422-5353';
+const phone5 = '345 33 2345';
+// check parsePhoneNumber
+const chkParsePhoneNo3 = parsePhoneNumber(phone3);
+const chkParsePhoneNo4 = parsePhoneNumber(phone4);
+const chkParsePhoneNo5 = parsePhoneNumber(phone5);
 
 // Check parsePhoneNumber
-console.log(parsePhoneNumber('206-333-4444'));
+console.log(chkParsePhoneNo3);
 // returns {areaCode: '206', phoneNumber: '3334444'}
 
-console.log(parsePhoneNumber('(222) 422-5353'));
+console.log(chkParsePhoneNo4);
 // returns {areaCode: '222', phoneNumber: '4225353'}
 
-console.log(parsePhoneNumber('345 33 2345'));
+console.log(chkParsePhoneNo5);
 // returns 'The number "345 33 2345" is not a phone no.'
+
+// Display the results in HTML page
+document.getElementById("phoneChk3").textContent = `The phone number: ${phone3} with area code: ${chkParsePhoneNo3.areaCode} and number: ${chkParsePhoneNo3.phoneNumber}`;
+document.getElementById("phoneChk4").textContent = `The phone number: ${phone4} with area code: ${chkParsePhoneNo4.areaCode} and number: ${chkParsePhoneNo4.phoneNumber}`;
+document.getElementById("phoneChk5").textContent = chkParsePhoneNo5;
