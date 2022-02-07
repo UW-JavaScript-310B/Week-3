@@ -43,11 +43,19 @@ console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a
 
 function parsePhoneNumber ( numberString ) {
     let areaCodeExtract = (/(?:[^(\s\-]?)(\d{3})/).exec(numberString);
-    console.log(areaCodeExtract);
-    let phoneNumberExtract = (/(?:[^(\s\-]?)(\d{3})/).lastIndex;
-    console.log(phoneNumberExtract);
-    //let phoneNumberExtract = (/(\d{3})-?\s?(\d{4})/).exec(phoneNumString.lastIndex);
-    //return {areaCodeExtract, phoneNumberExtract};
+    let indexAfterAreaCode = areaCodeExtract.index + 3;
+
+    let beginningPhoneNumberExtract = (/(?:[^(\s\-]?)(\d{3,4})/).exec(numberString.slice(indexAfterAreaCode, numberString.length));
+    let indexAfterBeginningPhoneNumber = beginningPhoneNumberExtract.index + 3;
+    
+    let lastPartOfPhoneNumberExtract = (/(?:[^(\s\-]?)(\d{4})/).exec(numberString.slice(indexAfterBeginningPhoneNumber, numberString.length));
+    
+    let areaCode = String(areaCodeExtract[0]);
+    let firstPartPhoneNumber = String(beginningPhoneNumberExtract[0]);
+    let secondPartPhoneNumber = String(lastPartOfPhoneNumberExtract[0]);
+    let phoneNumber = `${firstPartPhoneNumber}${secondPartPhoneNumber}`;
+    
+    return { 'areaCode': areaCode, 'phoneNumber': phoneNumber };
 }
 
 // Check parsePhoneNumber
