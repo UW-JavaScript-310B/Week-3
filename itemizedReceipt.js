@@ -2,8 +2,19 @@
 // with these properties: {descr, price}
 // i.e. {descr: 'Coke', price: 1.99}
 // function should log each item to the console and log a total price
+// descr, price = 0
+function logReceipt ( ...items ) {
+  let runningTotal = 0;
+  
+  items.forEach(function(item) {
+    console.log(`${item.descr}: ${item.price}`)
+    runningTotal += item.price;
+    console.log(`Subtotal: ${runningTotal}`)
+  });
+  
+  console.log(`Purchase total: $${runningTotal}`);
 
-
+}
 
 // Check
 logReceipt(
