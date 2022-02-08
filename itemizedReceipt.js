@@ -16,39 +16,36 @@ const items = [{
   },
 
   {
+    descr: 'Mexi Fries',
+    price: 1.99
+  },
+
+  {
     descr: 'Sprite',
     price: 1.99
   }
 
 ]
 
-// purchases = items.forEach(item => console.log(`${item.descr} - $${item.price}`))
-// totalCost = items[0].price + items[1].price + items[2].price;
-// console.log(`Total - ${totalCost}`);
-
 function logReceipt() {
   //set total cost to 0
   let totalCost = 0;
-  let totalCost2 = 0;
+
   //create list of items purchased and their price
-  purchases = items.forEach(item => console.log(`${item.descr} - $${item.price}`))
+  items.forEach(item => console.log(`${item.descr} - $${item.price}`))
 
   //create total line
-  //attempt 1 use for each produces an amount for each row want to limit to last sum
-  totalCost = items.forEach(item => console.log('Total Cost - ' + (totalCost += item.price)));
-  
-  //attempt 2  tried to eliminate for each to get final sum shows up as NaN
-  totalCost2 = totalCost += items.price;
- 
-  console.log(totalCost2);
+  items.forEach(item => totalCost += item.price);
+  console.log(`Total Cost - $${totalCost}`)
+
 };
 
-  logReceipt();
+logReceipt();
 
 
 
-  // should log something like:
-  // Burrito - $5.99
-  // Chips & Salsa - $2.99
-  // Sprite - $1.99
-  // Total - $10.97
+// should log something like:
+// Burrito - $5.99
+// Chips & Salsa - $2.99
+// Sprite - $1.99
+// Total - $10.97
