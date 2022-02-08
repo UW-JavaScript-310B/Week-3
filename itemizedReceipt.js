@@ -4,6 +4,21 @@
 // function should log each item to the console and log a total price
 
 
+// const logReceipt = function(...menuItems) {
+// then iterate over menuItems
+
+const logReceipt = function(...items) {
+  let total = 0;
+  const tax = .1025;
+       items.forEach(function (item) {
+        total += item.price;
+        taxes = item.price * tax;
+        total += taxes;
+        console.log(`${item.descr} - ${item.price} with tax ${(item.price + taxes).toFixed(2)}`);
+        }
+      )
+      console.log(`Total with tax - ${total.toFixed(2)}`)
+  };
 
 // Check
 logReceipt(
