@@ -9,12 +9,17 @@ body {
 }
 .title {
   color: blue;
-  font-weight: bold;
-  font-style: italic;
 }
 .approval {
   color: green;
 }
 .warning {
   color: red;
+}
+span {
+  font-weight: bold;
+}
+.summary {
+  font-weight: bold;
+  font-style: italic;
 }

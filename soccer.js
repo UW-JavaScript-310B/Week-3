@@ -28,7 +28,7 @@
 
     // Scan through arrayResult
     arrayResult.forEach(result => {
-      // Calculate total points
+      // Calculate total point
       totalPoint += getPointsFromResult(result);
     });
     // Return the total number of points won
@@ -39,9 +39,9 @@
   const totalPoints = getTotalPoints('wwdl');
   // Output to console log
   console.log(totalPoints); // should equal 7
+  
   // Display the total point number in HTML page
-  document.getElementById("totalPoint").textContent = `The total points of "wwdl" is: ${totalPoints}.`
-
+  document.getElementById("totalPoint").innerHTML = `The total points of the result <span class='approval'>wwdl</span> is: <span class='title'>${totalPoints}</span>`
 
   // create orderTeams function that accepts as many team objects as desired, 
   // each argument is a team object in the format { name, results }
@@ -57,9 +57,10 @@
       // Logs team info to the console
       console.log(teamInfo);
       // Display the info in HTML page
+      // Create a new element
       const teamElement = document.createElement('p');
-      const teamInfoText = document.createTextNode(teamInfo);
-      teamElement.appendChild(teamInfoText);
+      teamElement.innerHTML = `${team.name}: <span class='title'>${getTotalPoints(team.results)}</span>`;
+      // Add the new one as a child to element totalPoint
       document.getElementById("totalPoint").appendChild(teamElement);
     });
   };

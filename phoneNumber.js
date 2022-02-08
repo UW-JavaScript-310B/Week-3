@@ -34,9 +34,14 @@ const testPhone2 = testPhoneNumber(phone2);
 // check testPhoneNumber
 console.log(testPhone1); // should return true
 console.log(testPhone2); // should return false, missing a digit
+
 // Display the results in HTML page
-document.getElementById("phoneChk1").textContent = `Is this number "${phone1}" a phone number? ${testPhone1}`;
-document.getElementById("phoneChk2").textContent = `Is this number "${phone2}" a phone number? ${testPhone2}`;
+const phone1Element = document.getElementById("phoneChk1");
+phone1Element.innerHTML = `Is this number <span class='approval'>${phone1}</span> a phone number? <span class='title'>${testPhone1}</span>`;
+
+// phone2Element
+const phone2Element = document.getElementById('phoneChk2');
+phone2Element.innerHTML = `Is this number <span class='warning'>${phone2}</span> a phone number? <span class='warning'>${testPhone2}</span>`;
 
 
 // 1. Create a function parsePhoneNumber that takes in a phoneNumber string 
@@ -86,9 +91,9 @@ console.log(chkParsePhoneNo4);
 // returns {areaCode: '222', phoneNumber: '4225353'}
 
 console.log(chkParsePhoneNo5);
-// returns 'The number "345 33 2345" is not a phone no.'
+// returns 'The number "345 33 2345" is not a phone number.'
 
 // Display the results in HTML page
-document.getElementById("phoneChk3").textContent = `The phone number: ${phone3} with area code: ${chkParsePhoneNo3.areaCode} and number: ${chkParsePhoneNo3.phoneNumber}`;
-document.getElementById("phoneChk4").textContent = `The phone number: ${phone4} with area code: ${chkParsePhoneNo4.areaCode} and number: ${chkParsePhoneNo4.phoneNumber}`;
-document.getElementById("phoneChk5").textContent = chkParsePhoneNo5;
+document.getElementById("phoneChk3").innerHTML = `The phone number <span class='approval'>${phone3}</span> with area code is <span class='title'>${chkParsePhoneNo3.areaCode}</span> and number is <span class='approval'>${chkParsePhoneNo3.phoneNumber}</span>.`;
+document.getElementById("phoneChk4").innerHTML = `The phone number <span class='approval'>${phone4}</span> with area code is <span class='title'>${chkParsePhoneNo4.areaCode}</span> and number is <span class='approval'>${chkParsePhoneNo4.phoneNumber}</span>.`;
+document.getElementById("phoneChk5").innerHTML = chkParsePhoneNo5;
