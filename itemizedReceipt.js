@@ -3,7 +3,14 @@
 // i.e. {descr: 'Coke', price: 1.99}
 // function should log each item to the console and log a total price
 
-
+const logReceipt = (...args)=>{
+  let total = 0;
+  args.forEach((item)=>{
+    console.log(`${item.descr} - $${item.price}`);
+    total+=item.price;
+  })
+  console.log(`Total - $${total}`);
+}
 
 // Check
 logReceipt(
