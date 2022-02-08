@@ -24,8 +24,8 @@ let player2 = {
   health: 10,
 };
 
-console.log(player1)
-console.log(player2)
+// console.log(player1)
+// console.log(player2)
 
 // 3. Refactor attack function to an arrow function.  Comment out function above.
 const attack = (attackingPlayer, defendingPlayer, baseDamage, variableDamage) => {

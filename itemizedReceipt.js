@@ -5,7 +5,7 @@
 
 
 
-// Check
+// Create an array of menu item objects
 const items = [{
     descr: 'Burrito',
     price: 5.99
@@ -27,67 +27,28 @@ const items = [{
 // console.log(`Total - ${totalCost}`);
 
 function logReceipt() {
-purchases = items.forEach(item => console.log(`${item.descr} - $${item.price}`))
-totalCost = items[0].price + items[1].price + items[2].price;
-console.log(`Total - ${totalCost}`);
+  //set total cost to 0
+  let totalCost = 0;
+  let totalCost2 = 0;
+  //create list of items purchased and their price
+  purchases = items.forEach(item => console.log(`${item.descr} - $${item.price}`))
+
+  //create total line
+  //attempt 1 use for each produces an amount for each row want to limit to last sum
+  totalCost = items.forEach(item => console.log('Total Cost - ' + (totalCost += item.price)));
+  
+  //attempt 2  tried to eliminate for each to get final sum shows up as NaN
+  totalCost2 = totalCost += items.price;
+ 
+  console.log(totalCost2);
 };
 
-logReceipt();
+  logReceipt();
 
 
-//use for loop to get total cost
-// function totalCost2() {
-//   let sum = 0;
-//   let price = items.price;
 
-// for (let i = 0; i < items.length; i++) {
-//     sum += items[i];
-// }
-// console.log(sum);
-// }
-
-// totalCost2()
-
-
-//get total like you got it for adopt a dog project
-// function sumCost(price) {
-//   let totalCost = 0;
-// totalCost = parseFloat((items.price + totalCost).toFixed(2)); 
-// console.log('Total Purchases - $' + totalCost.toFixed(2));
-// }
-
-// const sumNumbers = function () {
-//   let sum = 0;
-//   const args = Array.from(items);
-//   args.forEach(function (price) {
-//   sum += price;
-//   });
-//   console.log(sum);
-//   };
-
-// let sum = items.reduce(function(previousValue, currentValue) {
-//   //let newprice  = previousValue.price + currentValue.price;
-//   return {
-//     price: previousValue.price + currentValue.price
-//   }
-// }, 0);
-// console.log(sum);
-
-//**Use reduce to determine total price
-// let val = items.reduce(function (previousValue, currentValue) {
-//   return {
-//     price: previousValue.price + currentValue.price
-
-//   }
- 
-// });
-// console.log(val);
-// expected output: 15
-
-// console.log(`Total Price - ${val}`);
-
-// should log something like:
-// Burrito - $5.99
-// Chips & Salsa - $2.99
-// Sprite - $1.99
-// Total - $10.97
+  // should log something like:
+  // Burrito - $5.99
+  // Chips & Salsa - $2.99
+  // Sprite - $1.99
+  // Total - $10.97
