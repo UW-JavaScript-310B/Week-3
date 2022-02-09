@@ -1,4 +1,3 @@
-
 const RESULT_VALUES = {
   w: 3,
   d: 1,
@@ -21,17 +20,17 @@ const getPointsFromResult = function getPointsFromResult(result) {
 // including wins, draws, and losses i.e. 'wwdlw'
 // Returns total number of points won
 
-function getTotalPoints(gameResults){
+function getTotalPoints(gameResults) {
   let gameResultsSplit = gameResults.split('');
   let total = 0;
-  gameResultsSplit.forEach((gameResult)=>{
-    if(RESULT_VALUES[gameResult]){
-      total +=RESULT_VALUES[gameResult];
+  gameResultsSplit.forEach((gameResult) => {
+    if (RESULT_VALUES[gameResult]) {
+      total += RESULT_VALUES[gameResult];
     }
-  
+
   })
-//console.log(total);
-return total
+  //console.log(total);
+  return total
 
 }
 
@@ -39,6 +38,7 @@ return total
 // Check getTotalPoints
 console.log(getTotalPoints('wwdl')); // should equal 7
 console.log(getTotalPoints('wwldlwd')); // should equal 11
+console.log(getTotalPoints('wzldlwd')); // should equal 8
 
 // create orderTeams function that accepts as many team objects as desired, 
 // each argument is a team object in the format { name, results }
@@ -46,27 +46,31 @@ console.log(getTotalPoints('wwldlwd')); // should equal 11
 // Logs each entry to the console as "Team name: points"
 
 
-function orderTeams(...args){
-  args.forEach((arg)=>{
-  let gameResultsSplit = arg.results.split('');
-  let total = 0;
-  gameResultsSplit.forEach((gameResult)=>{
-    if(RESULT_VALUES[gameResult]){
-      total += RESULT_VALUES[gameResult];
-    }
-      })
-    console.log(`${arg.name}: ${total}`);
+function orderTeams(...args) {
+  args.forEach((arg) => {
+    let gameResultsSplit = arg.results.split('');
+    let total = 0;
+    gameResultsSplit.forEach((gameResult) => {
+      if (RESULT_VALUES[gameResult]) {
+        total += RESULT_VALUES[gameResult];
+      }
     })
-    }
+    console.log(`${arg.name}: ${total}`);
+  })
+}
 
-  
+
 // Check orderTeams
-orderTeams(
-  { name: 'Sounders', results: 'wwdl' },
-  { name: 'Galaxy', results: 'wlld' },
-  { name: 'Minnesota United', results: 'lldw' }
-);
+orderTeams({
+  name: 'Sounders',
+  results: 'wwdl'
+}, {
+  name: 'Galaxy',
+  results: 'wlld'
+}, {
+  name: 'Minnesota United',
+  results: 'dldw'
+});
 // should log the following to the console:
 // Sounders: 7
 // Galaxy: 4
-

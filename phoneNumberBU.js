@@ -44,29 +44,70 @@ console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a
 // passed in is correct*.  This should use a regular expression
 // and run the exec method to capture the area code and remaining part of
 // the phone number.
-// Returns an object in the format {areaCode, phoneNumber}
+// Returns an object in the format {areaCode, phoneNumber}\\
 console.log('Result for parsing of phone number');
 
-function parsePhoneNumber(phone) {
+const parsePhoneNumber = function (parsePhone){
+  let areaMatch = /\(?\d{3}\)?/.exec(parsePhone)
 
+  let areaCode = areaMatch[0].replace(/\(/,'')
+
+  let area = areaCode.replace(/\)/,'')
+
+  let phone = /\d{3}-\d{4}/.exec(parsePhone)
+
+  phoneObject = {
+      areaCode:area,
+      phoneNumber:phone[0].replace('-','')
+  }
+  // return `areaCode: '${phoneObject.area}', phoneNumber: '${phoneObject.phone}'`
+  return phoneObject
+}
+
+console.log('Result for parsing of phone number');
+
+/\(?\d{3}\)?/
+  function parsePhoneNumber(phone) {
     //parse area code
-    const regexAreaCode = /\d{3}/g;
+    const regexAreaCode =  (/\d{3}/g);
     let parsedAreaCode = regexAreaCode.exec(phone);
-    // console.log(parsedAreaCode);
+    console.log(parsedAreaCode);
+
+    
+
+    //parse phone wo area code
+    const regexPhonePrefix =  (/\d{3}/g);
+    const regexPhoneExt =  (/\d{4}/);
+    const regexDigit = (/[0-9]+/);
 
 
-    //find phone nubers
-    const regexPhone = /\d{3}[-\s]\d{4}/;
+    let parsedAreaCode = regexAreaCode.exec(phone);
+    let parsedPhonePrefix = regexPhonePrefix.exec(phone);
+    let parsedPhoneExt = regexPhoneExt.exec(phone);
     let parsedPhone = regexPhone.exec(phone);
-    let parsedPhone2 = parsedPhone[0].replace('-', '');
-    // console.log(parsedPhone);
-    // console.log(parsedPhone2);
+    let parsedDigit = regexDigit.exec(phone);
+    let AreaCode = `${parsedAreaCode}`;
+    // let  parsedPhoneNumber = `${parsedPhonePrefix} ${parsedPhoneExt}`;
+    
+    let phoneNumber = parsedPhone.replace("-", "");
+    //var strNewWebsiteName = strWebsiteName.replace("\n", "");
 
-    let phoneNumbers = (`areaCode: ${parsedAreaCode}, phoneNumber: ${parsedPhone2} `)
-    console.log(phoneNumbers);
-};
+    console.log(parsedPhonePrefix);
+    console.log(parsedPhoneExt);
+    console.log(parsedPhone);
+    console.log(parsedDigit);
+    console.log(AreaCode);
+    console.log(phoneNumber);
+    // console.log(parsedPhoneNumber);
+  
 
+    console.log(`areaCode: (${AreaCode}), phoneNumber: ${phoneNumber} `);
 
+    
+  };
+    
+
+  
 
 // Check parsePhoneNumber
 console.log(parsePhoneNumber('206-333-4444'));
