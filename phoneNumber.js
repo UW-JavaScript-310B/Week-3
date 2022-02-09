@@ -5,7 +5,15 @@
 // '206 333 4444'
 // Returns true if valid, false if not valid
 
-
+const testPhoneNumber = phoneNumber => {
+    const parenTest = new RegExp(/^\(\d{3}\)[-\s]\d{3}[-\s]\d{4}$/);
+    const noparenTest = new RegExp(/^\d{3}[-\s]\d{3}[-\s]\d{4}$/);
+    if (parenTest.test(phoneNumber) || noparenTest.test(phoneNumber)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 // Explanation of RegExp
 // ^      start of line
@@ -30,7 +38,12 @@ console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a
 // the phone number.
 // Returns an object in the format {areaCode, phoneNumber}
 
-
+const parsePhoneNumber = phoneNumber => {
+    return {
+        areaCode: /\d{3}/.exec(phoneNumber),
+        phoneNumber: /\d{3}[-\s]\d{4}/.exec(phoneNumber)
+    }
+}
 
 // Check parsePhoneNumber
 console.log(parsePhoneNumber('206-333-4444'));
