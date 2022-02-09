@@ -24,16 +24,16 @@ console.log('Result for validation of phone number')
 
 function testPhoneNumber(phone) {
     const regex = /^\(\d{3}\)[-\s]\d{3}[-\s]\d{4}$/;
-
+//validate whether phone number matches regex format
     if (phone.match(regex)) {
-        console.log('true');
+        return ('true');
     } else {
-        console.log('false');
+        return ('false');
 
     }
 
 };
-
+//run function with parameters
 console.log('Phone number is valid')
 console.log(testPhoneNumber('(206) 333-4444')); // should return true
 console.log('Phone number is not valid')
@@ -62,8 +62,10 @@ function parsePhoneNumber(phone) {
     // console.log(parsedPhone);
     // console.log(parsedPhone2);
 
+    //create format to be used in return statement
     let phoneNumbers = (`areaCode: ${parsedAreaCode}, phoneNumber: ${parsedPhone2} `)
-    console.log(phoneNumbers);
+    // console.log(phoneNumbers);
+    return phoneNumbers;
 };
 
 

@@ -9,6 +9,7 @@ constructor(name, topSpeed) {
     this.topSpeed = topSpeed;
 
     }
+    
 usetopSpeed(){
     const{name, topSpeed} = this;
     console.log( `${this.name} moving to ${this.topSpeed}`)

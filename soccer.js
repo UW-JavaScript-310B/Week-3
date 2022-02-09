@@ -21,8 +21,11 @@ const getPointsFromResult = function getPointsFromResult(result) {
 // Returns total number of points won
 
 function getTotalPoints(gameResults) {
+  //split the parameter of wins, losses, draws into separate values
   let gameResultsSplit = gameResults.split('');
+  //calculate points for the parameter
   let total = 0;
+  //add the points value to the total if the gameResult is part of the valid result values
   gameResultsSplit.forEach((gameResult) => {
     if (RESULT_VALUES[gameResult]) {
       total += RESULT_VALUES[gameResult];

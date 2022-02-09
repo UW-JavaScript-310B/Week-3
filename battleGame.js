@@ -36,7 +36,8 @@ const attack = (attackingPlayer, defendingPlayer, baseDamage, variableDamage) =>
   // console.log( randomValue );
   // console.log( totalDamage );
   // console.log( defendingPlayer.health );
-  console.log(`${attackingPlayer.name}' hits '${defendingPlayer.name} 'for '${totalDamage}' damage'`)
+  let gameResult = (`${attackingPlayer.name}' hits '${defendingPlayer.name} 'for '${totalDamage}' damage'`);
+  return gameResult;
 }
 
 
