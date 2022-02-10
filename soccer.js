@@ -48,17 +48,17 @@ console.log(getTotalPoints('wzldlwd')); // should equal 8
 // i.e. {name: 'Sounders', results: 'wwlwdd'}
 // Logs each entry to the console as "Team name: points"
 
-
-function orderTeams(...args) {
-  args.forEach((arg) => {
-    let gameResultsSplit = arg.results.split('');
+//added for each loop sp function will loop thru multiple game results
+function orderTeams(...gameResults) {
+  gameResults.forEach((gameResult) => {
+    let gameResultsSplit = gameResult.results.split('');
     let total = 0;
     gameResultsSplit.forEach((gameResult) => {
       if (RESULT_VALUES[gameResult]) {
         total += RESULT_VALUES[gameResult];
       }
     })
-    console.log(`${arg.name}: ${total}`);
+       console.log(`name: ${gameResult.name}, results: ${total}`);
   })
 }
 
