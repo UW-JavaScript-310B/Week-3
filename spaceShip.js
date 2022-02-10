@@ -17,8 +17,8 @@ class SpaceShip {
 // 2. Call the constructor with a couple ships, 
 // and call accelerate on both of them.
 
-let xWingFighter = new SpaceShip('X-Wing Fighter', 'Mach 10');
-let milleniumFalcon = new SpaceShip('Millenium Falcon', 'Light speed!');
+let xWingFighter = new SpaceShip('X-Wing Fighter', '1,050 km/h');
+let milleniumFalcon = new SpaceShip('Millennium Falcon', '75 MGLT');
 
 xWingFighter.accelerate();
 milleniumFalcon.accelerate();
