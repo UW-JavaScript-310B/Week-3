@@ -1,4 +1,3 @@
-
 const RESULT_VALUES = {
   w: 3,
   d: 1,
@@ -16,27 +15,65 @@ const getPointsFromResult = function getPointsFromResult(result) {
   return RESULT_VALUES[result];
 }
 
+
 // Create getTotalPoints function which accepts a string of results
 // including wins, draws, and losses i.e. 'wwdlw'
 // Returns total number of points won
 
+function getTotalPoints(gameResults) {
+  //split the parameter of wins, losses, draws into separate values
+  let gameResultsSplit = gameResults.split('');
+  //calculate points for the parameter
+  let total = 0;
+  //add the points value to the total if the gameResult is part of the valid result values
+  gameResultsSplit.forEach((gameResult) => {
+    if (RESULT_VALUES[gameResult]) {
+      total += RESULT_VALUES[gameResult];
+    }
+
+  })
+  //console.log(total);
+  return total
+
+}
 
 
 // Check getTotalPoints
 console.log(getTotalPoints('wwdl')); // should equal 7
+console.log(getTotalPoints('wwldlwd')); // should equal 11
+console.log(getTotalPoints('wzldlwd')); // should equal 8
 
 // create orderTeams function that accepts as many team objects as desired, 
 // each argument is a team object in the format { name, results }
 // i.e. {name: 'Sounders', results: 'wwlwdd'}
 // Logs each entry to the console as "Team name: points"
 
+//added for each loop sp function will loop thru multiple game results
+function orderTeams(...gameResults) {
+  gameResults.forEach((gameResult) => {
+    let gameResultsSplit = gameResult.results.split('');
+    let total = 0;
+    gameResultsSplit.forEach((gameResult) => {
+      if (RESULT_VALUES[gameResult]) {
+        total += RESULT_VALUES[gameResult];
+      }
+    })
+       console.log(`name: ${gameResult.name}, results: ${total}`);
+  })
+}
 
 
 // Check orderTeams
-orderTeams(
-  { name: 'Sounders', results: 'wwdl' },
-  { name: 'Galaxy', results: 'wlld' }
-);
+orderTeams({
+  name: 'Sounders',
+  results: 'wwdl'
+}, {
+  name: 'Galaxy',
+  results: 'wlld'
+}, {
+  name: 'Minnesota United',
+  results: 'dldw'
+});
 // should log the following to the console:
 // Sounders: 7
 // Galaxy: 4
