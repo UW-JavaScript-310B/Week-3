@@ -3,6 +3,17 @@
 // i.e. {descr: 'Coke', price: 1.99}
 // function should log each item to the console and log a total price
 
+function logReceipt(...foodEntry) {
+  let runningTotal = 0;
+
+  for (let i = 0; i < foodEntry.length; i++ ) {
+    console.log(foodEntry[i]['descr'] + ' - $' + foodEntry[i]['price']);
+    runningTotal += foodEntry[i]['price'];
+  }
+
+  console.log('Total - ' + runningTotal);
+
+}
 
 
 // Check

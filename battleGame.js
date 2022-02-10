@@ -1,15 +1,37 @@
 // 1. Create attack function below.  This will take the following parameters:
 // attackingPlayer, defendingPlayer, baseDamage, variableDamage
 
+/* STUDENT NOTE
+    selected Math.floor as opposed to Math.round because with Math.round, player2
+    would always be the one eliminated. Math.floor has more of player1 losing too.
+*/
 
+// function attack(attackingPlayer, defendingPlayer, baseDamage, variableDamage) {
+//   let varDamVal = Math.floor(Math.random() * variableDamage)
+//   let attackDamage = baseDamage + varDamVal;
+//   defendingPlayer.health -= attackDamage;
+//   console.log(`${attackingPlayer.name} attacks ${defendingPlayer.name}, deals ${attackDamage}. ${defendingPlayer.name} health is ${defendingPlayer.health}`)
+// }
 
 // 2. Create player1 and player2 objects below
 // Each should have a name property of your choosing, and health property equal to 10
+let player1 = {
+  name: "Rodney",
+  health: 10
+}
 
-
+let player2 = {
+  name: "Oswald",
+  health: 10
+}
 
 // 3. Refactor attack function to an arrow function.  Comment out function above.
-
+const attack = (attackingPlayer, defendingPlayer, baseDamage, variableDamage) => {
+  let varDamVal = Math.floor(Math.random() * variableDamage);
+  let attackDamage = baseDamage + varDamVal;
+  defendingPlayer.health -= attackDamage;
+  console.log(`${attackingPlayer.name} attacks ${defendingPlayer.name}, deals ${attackDamage}. ${defendingPlayer.name} health is ${defendingPlayer.health}`)
+}
 
 
 // DO NOT MODIFY THE CODE BELOW THIS LINE
