@@ -8,7 +8,7 @@
 const globalRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/gm;
 
 let testPhoneNumber = function(phoneString){
-    console.log(globalRegex.test(phoneString));
+    return globalRegex.test(phoneString);
 };
 
 
@@ -37,14 +37,14 @@ console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a
 // Returns an object in the format {areaCode, phoneNumber}
 
 function parsePhoneNumber(phoneString){
-    const result = globalRegex.exec(phoneString);
-    console.log(result);
+    const newRegex = new RegExp(globalRegex);
+    const result = newRegex.exec(phoneString);
     const areaCode = result[1];
     const phoneNumber = `${result[2]}${result[3]}`;
 
     const phoneNumberObject = {areaCode:`${areaCode}`, phoneNumber:`${phoneNumber}`};
 
-    console.log(phoneNumberObject);
+    return phoneNumberObject;
 };
 
 
