@@ -34,13 +34,20 @@ console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a
 // the phone number.
 // Returns an object in the format {areaCode, phoneNumber}
 function parsePhoneNumber(phoneNbr) {
-    let regex3 = /[0-9]{3}/g;
-    let regex4 = /([0-9]{4})/g;
-    let areaCode = regex3.exec(phoneNbr);
-    let number = regex3.exec(phoneNbr) + regex4.exec(phoneNbr)[0];
-    return `areaCode: '${areaCode}', phoneNumber: '${number}'`;
+    let regexMix = /([0-9]{4}|[0-9]{3})/g;
+    let arrayExtraction;
+    let nbr = "";
+    let areaCode = "";
+    let i = 0;
+    while ((arrayExtraction = regexMix.exec(phoneNbr)) !== null) {
+        if (i == 0)
+            areaCode = arrayExtraction[0];
+        else 
+            nbr += arrayExtraction[0];
+        i++;
+    }
+    return `areaCode: '${areaCode}', phoneNumber: '${nbr}'`;
 }
-
 
 // Check parsePhoneNumber
 console.log(parsePhoneNumber('206-333-4444'));
