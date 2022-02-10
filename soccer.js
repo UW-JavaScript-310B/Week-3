@@ -20,7 +20,19 @@ const getPointsFromResult = function getPointsFromResult(result) {
 // including wins, draws, and losses i.e. 'wwdlw'
 // Returns total number of points won
 
-
+function getTotalPoints(results) {
+  const seasonResults = results.split('');
+  let totalPoints = 0;
+  seasonResults.forEach(function (gameResult) {
+    if (gameResult == 'w') {
+      totalPoints += 3;
+    }
+    if (gameResult == 'd') {
+      totalPoints += 1;
+    }
+  });
+  return totalPoints;
+}
 
 // Check getTotalPoints
 console.log(getTotalPoints('wwdl')); // should equal 7
