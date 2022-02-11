@@ -15,9 +15,10 @@ function logReceipt(...receipt){
     console.log(`${receipt.descr} - $${receipt.price}`)
   });
 
-  console. log (`Subtotal : $${sum}`)
-  console. log (`Taxes : $${taxSum.toFixed(2)}`)  
-  console. log (`Total : $${(sum + taxSum).toFixed(2)}`)
+  console.log 
+  (`Subtotal : $${sum}
+   Taxes : $${taxSum.toFixed(2)}  
+   Total : $${(sum + taxSum).toFixed(2)}`)
 };
 
 // Check

@@ -48,14 +48,14 @@ function parsePhoneNumber(phoneNumber) {
     const checkParenthesis = /^\(\d{3}\)/.test(phoneNumber);
 
     if (checkParenthesis == true) {
-        const regexAreaCode = /^(\(\d{3}\))[-\s](\d{3}[-\s]\d{4})$/;
+        const regexAreaCode = /^\(\(d{3})\)[-\s](\d{3})[-\s](\d{4})$/;
         const capturePhoneNum = regexAreaCode.exec(phoneNumber);
-        const numberCaptured = {areaCode: capturePhoneNum[1], phoneNumber: capturePhoneNum[2]};
+        const numberCaptured = {areaCode: capturePhoneNum[1], phoneNumber: capturePhoneNum[2] + capturePhoneNum[3]};
         return numberCaptured;
     } else {
-        const regexAreaCode = /^(\d{3})[-\s](\d{3}[-\s]\d{4})$/;
+        const regexAreaCode = /^(\d{3})[-\s](\d{3})[-\s](\d{4})$/;
         const capturePhoneNum = regexAreaCode.exec(phoneNumber);
-        const numberCaptured = {areaCode: capturePhoneNum[1], phoneNumber: capturePhoneNum[2]}; 
+        const numberCaptured = {areaCode: capturePhoneNum[1], phoneNumber: capturePhoneNum[2] + capturePhoneNum[3]}; 
         return numberCaptured;
     }
 }
