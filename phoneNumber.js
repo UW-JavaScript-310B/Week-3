@@ -5,7 +5,21 @@
 // '206 333 4444'
 // Returns true if valid, false if not valid
 
+const phoneNumberStr = '(206) 333-4444';
+// const phoneNumberStr = '206-333-4444';
+// const phoneNumberStr = '206 333 4444';
 
+function testPhoneNumber(phoneNumber) {
+    const checkParenthesis = /^\(\d{3}\)/.test(phoneNumber);
+
+    if (checkParenthesis == true) {
+        const regexPhone = /^\(\d{3}\)[-\s]\d{3}[-\s]\d{4}$/.test(phoneNumber);
+        return regexPhone;
+    } else {
+        const regexPhone = /^\d{3}[-\s]\d{3}[-\s]\d{4}$/.test(phoneNumber);
+        return regexPhone;
+    }
+}
 
 // Explanation of RegExp
 // ^      start of line
@@ -30,7 +44,21 @@ console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a
 // the phone number.
 // Returns an object in the format {areaCode, phoneNumber}
 
+function parsePhoneNumber(phoneNumber) {
+    const checkParenthesis = /^\(\d{3}\)/.test(phoneNumber);
 
+    if (checkParenthesis == true) {
+        const regexAreaCode = /^\(\(d{3})\)[-\s](\d{3})[-\s](\d{4})$/;
+        const capturePhoneNum = regexAreaCode.exec(phoneNumber);
+        const numberCaptured = {areaCode: capturePhoneNum[1], phoneNumber: capturePhoneNum[2] + capturePhoneNum[3]};
+        return numberCaptured;
+    } else {
+        const regexAreaCode = /^(\d{3})[-\s](\d{3})[-\s](\d{4})$/;
+        const capturePhoneNum = regexAreaCode.exec(phoneNumber);
+        const numberCaptured = {areaCode: capturePhoneNum[1], phoneNumber: capturePhoneNum[2] + capturePhoneNum[3]}; 
+        return numberCaptured;
+    }
+}
 
 // Check parsePhoneNumber
 console.log(parsePhoneNumber('206-333-4444'));
