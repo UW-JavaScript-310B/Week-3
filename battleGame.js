@@ -9,7 +9,7 @@
 // Each should have a name property of your choosing, and health property equal to 10
 
 const player1 = {
-  name: 'Ragmar',
+  name: 'Galstaff',
   health: 10
 };
 
