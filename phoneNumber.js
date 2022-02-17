@@ -4,8 +4,10 @@
 // '206-333-4444'
 // '206 333 4444'
 // Returns true if valid, false if not valid
-
-
+const Phone = function testPhoneNumber(...phoneNumber) {
+        return phoneNumber;
+}
+testPhoneNumber((206)-333-4444);
 
 // Explanation of RegExp
 // ^      start of line
@@ -29,7 +31,9 @@ console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a
 // and run the exec method to capture the area code and remaining part of
 // the phone number.
 // Returns an object in the format {areaCode, phoneNumber}
-
+const Phone = function parsePhoneNumber(...phoneNumber) {
+    return phoneNumber;
+}
 
 
 // Check parsePhoneNumber
