@@ -35,9 +35,11 @@ const parsePhoneNumber = (phoneNumber) => {
     var cleaned = ('' + phoneNumber).replace(/\D/g, '');
     var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
     if (match) {
-      return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+      phoneNumber = match[1] + match[2] + match[3];
     }
-    return null;
+    var areaCode = phoneNumber.substring(0,3);
+    var phoneNumber = phoneNumber.substring(3,10);
+    return {areaCode,phoneNumber};
 }
 
 
