@@ -32,16 +32,13 @@ console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a
 // the phone number.
 // Returns an object in the format {areaCode, phoneNumber}
 const parsePhoneNumber = (phoneNumber) => {
-    var cleaned = ('' + phoneNumber).replace(/\D/g, '');
-    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-    if (match) {
-      phoneNumber = match[1] + match[2] + match[3];
-    }
-    var areaCode = phoneNumber.substring(0,3);
-    var phoneNumber = phoneNumber.substring(3,10);
-    return {areaCode,phoneNumber};
-}
+     const phoneNumberParts = /^\(?(\d{3})[\)\s-]+(\d{3})[\s-](\d{4})$/.exec(phoneNumber);
+     const [, areaCode, first, last] = phoneNumberParts;
 
+     const phoneNo = {areaCode,phoneNumber:`${first}${last}`};
+
+     return phoneNo;
+}
 
 // Check parsePhoneNumber
 console.log(parsePhoneNumber('206-333-4444'));
