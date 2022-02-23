@@ -4,8 +4,11 @@
 // '206-333-4444'
 // '206 333 4444'
 // Returns true if valid, false if not valid
-
-
+const testPhoneNumber = (phoneNumber) => {
+    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    return phoneno.test(phoneNumber);
+}
+testPhoneNumber('2063334444');
 
 // Explanation of RegExp
 // ^      start of line
@@ -22,15 +25,20 @@
 console.log(testPhoneNumber('(206) 333-4444')); // should return true
 console.log(testPhoneNumber('(206) 33-4444')); // should return false, missing a digit
 
-
 // 1. Create a function parsePhoneNumber that takes in a phoneNumber string 
 // in one of the above formats.  For this, you can *assume the phone number
 // passed in is correct*.  This should use a regular expression
 // and run the exec method to capture the area code and remaining part of
 // the phone number.
 // Returns an object in the format {areaCode, phoneNumber}
+const parsePhoneNumber = (phoneNumber) => {
+     const phoneNumberParts = /^\(?(\d{3})[\)\s-]+(\d{3})[\s-](\d{4})$/.exec(phoneNumber);
+     const [, areaCode, first, last] = phoneNumberParts;
 
+     const phoneNo = {areaCode,phoneNumber:`${first}${last}`};
 
+     return phoneNo;
+}
 
 // Check parsePhoneNumber
 console.log(parsePhoneNumber('206-333-4444'));
