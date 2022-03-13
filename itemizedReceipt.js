@@ -11,7 +11,7 @@ const logReceipt = function(...menuItems) {
 
   menuItems.forEach(menuItems => console.log(`Product: ${menuItems.descr} - ${menuItems.price}`));
   menuItems.forEach(menuItems => total += menuItems.price);
-  console.log(`Total - ${total}`)
+  console.log(`Total - ${total}`);
 };
 logReceipt(
   { descr: 'Burrito', price: 5.99 },

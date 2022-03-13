@@ -43,11 +43,11 @@ parsePhoneNumber = function(phoneNumber) {
     const dash = parenthesisTwo.replace('-', '');
     const space = dash.replace(' ', '');
     const regex = /(?<=^...)(.*)[-\s]?[0-9]{3}[-\s]?[0-9]{4}/.exec(space);
-    const result = regex.join()
+    const result = regex.join();
     
-    const area = space.substring(0,3)
-    const number = result.replace(',','')
-   console.log(`areaCode: '${area}' phoneNumber: '${number}'`)
+    const area = space.substring(0,3);
+    const number = result.replace(',','');
+   console.log(`areaCode: '${area}' phoneNumber: '${number}'`);
 }
     
 

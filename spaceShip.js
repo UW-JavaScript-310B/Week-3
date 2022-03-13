@@ -10,7 +10,7 @@ class SpaceShip{
     };
 
     accelerate(){
-        console.log(`${this.name} moving to ${this.topSpeed}`)
+        console.log(`${this.name} moving to ${this.topSpeed}`);
     };
 };
    
@@ -22,5 +22,5 @@ class SpaceShip{
 const shipOne = new SpaceShip('Jack', 'Really fast');
 const shiptwo = new SpaceShip('Johnathon', 'Not very fast');
 
-shipOne.accelerate()
-shiptwo.accelerate()
+shipOne.accelerate();
+shiptwo.accelerate();

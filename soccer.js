@@ -22,12 +22,12 @@ const getPointsFromResult = function getPointsFromResult(result) {
 // Returns total number of points won
 
 function getTotalPoints(result) {
-  let pointsPerCriteria = result.split('')
-  let points = 0
+  let pointsPerCriteria = result.split('');
+  let points = 0;
   
   
   for (let i = 0; i < pointsPerCriteria.length; i++ ) {
-    points += getPointsFromResult(pointsPerCriteria[i])
+    points += getPointsFromResult(pointsPerCriteria[i]);
     
   }
     return points;
