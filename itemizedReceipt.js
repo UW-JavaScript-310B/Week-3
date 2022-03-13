@@ -6,10 +6,18 @@
 
 
 // Check
+const logReceipt = function(...menuItems) {
+  let total = 0;
+
+  menuItems.forEach(menuItems => console.log(`Product: ${menuItems.descr} - ${menuItems.price}`));
+  menuItems.forEach(menuItems => total += menuItems.price);
+  console.log(`Total - ${total}`)
+};
 logReceipt(
   { descr: 'Burrito', price: 5.99 },
   { descr: 'Chips & Salsa', price: 2.99 },
-  { descr: 'Sprite', price: 1.99 }
+  { descr: 'Sprite', price: 1.99 },
+  { descr: 'Sprit', price: 1.99 },
 );
 // should log something like:
 // Burrito - $5.99
